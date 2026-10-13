@@ -111,7 +111,7 @@ class WapdaBinarySensor(
     def device_info(self) -> DeviceInfo:
         return DeviceInfo(
             identifiers={(DOMAIN, self._reference)},
-            name=f"WAPDA Feeder Monitor {self._reference}",
+            name=f"WAPDA Feeder Monitor …{self._reference[-4:]}",
             manufacturer=MANUFACTURER,
             model="WAPDA Feeder Monitor",
             entry_type=DeviceEntryType.SERVICE,
