@@ -253,7 +253,8 @@ def _last_event_value(load: dict | None) -> str | None:
     events = load.get("event_logs", [])
     if not events:
         return None
-    ev = events[0]
+    # The portal lists events oldest-first; pick the newest by timestamp.
+    ev = max(events, key=lambda e: str(e.get("event_time", "")))
     return f"{ev.get('event', '')} at {ev.get('event_time', '')}"
 
 
